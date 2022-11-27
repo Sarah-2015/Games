@@ -1,7 +1,7 @@
 
 import './App.scss';
 import React, { useEffect, useState } from 'react'
-import { createBrowserRouter,Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter,createHashRouter,Navigate, RouterProvider } from 'react-router-dom';
 import { Offline, Online } from "react-detect-offline";
 import MasterLayout from '../MasterLayout/MasterLayout';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -44,7 +44,7 @@ function App() {
 
   }
 
-  let routes=createBrowserRouter([{
+  let routes=createHashRouter([{
     path:'/',element:<MasterLayout userData={userData} logout={logout}/>,children:[
       {index:true,element:<ProtectedRoute userData={userData}><Home /></ProtectedRoute>},
     

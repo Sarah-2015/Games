@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import { Helmet } from 'react-helmet'
 import { Link, useParams } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 
 
@@ -31,7 +33,13 @@ let getGameByPlatform=async()=>{
 }
 getGameByPlatform();
   return (
-    <div>
+    <>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>{params.type}</title>
+                
+            </Helmet>
+  {gameList.length>0?<><div>
     <div className="row g-3 py-5">
       {gameList.map((game,index)=> <div key={index} className='col-lg-3 col-md-4 '>
       <Link className='nav-link' to={`/details/${game.id}`}>
@@ -61,5 +69,8 @@ getGameByPlatform();
     </div>
   
   </div>
+  </>:<Loading/>}
+  </>
+    
   )
 }

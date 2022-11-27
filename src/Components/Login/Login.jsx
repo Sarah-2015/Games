@@ -61,14 +61,16 @@ export default function Login({saveUserData}) {
       </div>
       <div className="col-md-6 text-center">
         <img className='w-25 p-2' src={logo}/>
-        {errorList.map((error,index)=>error.context.label=="password"?<div key={index} className='alert alert-danger '>wrong password</div>:<div key={index} className='alert alert-danger p-2'>{error.message}</div>)}
+    
     {errorMsg? <div className='alert alert-danger '>{errorMsg}</div>:""}
-        <h2 >Log in to GameOver</h2>
+        <h2 className='text-white' >Log in to GameOver</h2>
         <form onSubmit={submitFormData} className='my-3' >
     
           <input onChange={getInputValue} className='form-control my-2' type='email' placeholder='Email'name='email' />
+          {errorList.map((error,index)=>error.context.label=='email'?<p key={index} className=' text-danger text-start'>Email {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
  
           <input onChange={getInputValue} className='form-control my-2' type='password' placeholder='Password' name='password'/>
+          {errorList.map((error,index)=>error.context.label=="password"?<p key={index} className='text-danger text-start '>Wrong Password</p>:"")}
           <div className="">
        <button className='btn btn-outline-primary my-3 w-100 '>Login</button>
        </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
+import Loading from '../Loading/Loading';
 
 
 
@@ -42,19 +44,25 @@ let getGameList=()=>{
 
   return (
     <>
-    <section className="jumbotron text-center py-5">
+      
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>Home</title>
+                
+            </Helmet>
+    {gameList.length>0?<><section className="jumbotron text-center pt-5 pb-4">
       <div  className="container mb-n2">
-        <h1  className="jumbotron-heading">Find &amp; track the best <span  className="ftg-blue">free-to-play</span> games!</h1>
+        <h1  className="text-info">Find &amp; track the best <span  className="ftg-blue">free-to-play</span> games!</h1>
         <p  className="lead text-muted">Track what you've played and search for what to play next! Plus get free premium loot! </p>
-        <p ><Link  role="button" className="btn btn-outline-secondary btn-md ml-0" to={"all"} >Browse Games</Link></p>
+        <p ><Link  role="button" className="btn btn-outline-info btn-md ml-0" to={"all"} >Browse Games</Link></p>
      </div>
      </section>
        
        
-      <div className="row g-3 py-2 gustify-content-center">
+      <div className="row g-3 py-1 gustify-content-center">
       <h3><i className="fas fa-robot mr-2"></i>Personalized Recommendations</h3>
 
-        {gameList.slice(15,18).map((game,index)=> <div key={index} className='col-md-4'>
+        {gameList.slice(1,4).map((game,index)=> <div key={index} className='col-md-4'>
         <Link className='nav-link' to={`/details/${game.id}`}>
         <div className="card h-100 card-bg">
       <img src={game.thumbnail} className="card-img-top" alt="..."/>
@@ -79,7 +87,8 @@ let getGameList=()=>{
           </div>
         )}
      
-      </div>
+      </div></>:<Loading/>}
+    
     
     
     </>

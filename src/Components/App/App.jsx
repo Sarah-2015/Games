@@ -2,6 +2,7 @@
 import './App.scss';
 import React, { useEffect, useState } from 'react'
 import { createBrowserRouter,Navigate, RouterProvider } from 'react-router-dom';
+import { Offline, Online } from "react-detect-offline";
 import MasterLayout from '../MasterLayout/MasterLayout';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Home from '../Home/Home';
@@ -62,6 +63,7 @@ function App() {
   return (
   <>
   <RouterProvider router={routes}/>
+  <Offline><div className='offline shadow bg-danger'>You are offline</div></Offline>
 
   </>
   );

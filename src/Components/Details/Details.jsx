@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
+import Loading from '../Loading/Loading';
+
 
 export default function Details() {
     let [itemDetails, setItemDetails] = useState({})
@@ -34,10 +37,16 @@ export default function Details() {
       }
       
   return (
-    <div>
+    <>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>{itemDetails.title}</title>
+                
+            </Helmet>
+    {itemDetails.title?<>
         <div className="row py-5">
             <div className="col-md-3">
-            <img className='w-100 h-50' src={itemDetails.thumbnail}/>
+            <img className='w-100 ' src={itemDetails.thumbnail}/>
             <div  className="col me-0 pe-0">
                 <a type="button" name="playnow" rel="nofollow" target="_blank" className="btn btn-primary btn-block w-50  py-2 my-2" href={itemDetails.game_url}>
                     <strong >PLAY NOW </strong><i className="fas fa-sign-out-alt"></i>
@@ -46,15 +55,21 @@ export default function Details() {
 
             </div>
             <div className="col-md-9 px-2">
-                <h1>{itemDetails.title}</h1>
+                <h1 className='text-info'>{itemDetails.title}</h1>
                 <h5></h5>
                 <p>{itemDetails.description}</p>
                 <div>
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner p-5">
-    {itemDetails.screenshots?.map((item,index)=><div key={index} className="carousel-item active">
-      <img src={item.image} className="d-block w-100" alt="..."/>
-    </div>)}
+                <div id="carouselExampleControls" className="carousel slide w-75 m-auto " data-bs-ride="carousel">
+  <div class="carousel-inner py-5">
+    {itemDetails.screenshots?<><div  className="carousel-item active">
+      <img src={itemDetails.screenshots[0].image} className="d-block w-100" alt="..."/>
+    </div>
+    <div  className="carousel-item ">
+    <img src={itemDetails.screenshots[1].image} className="d-block w-100" alt="..."/>
+  </div>
+  <div  className="carousel-item ">
+  <img src={itemDetails.screenshots[2].image} className="d-block w-100" alt="..."/>
+</div></>:""}
   
     
    
@@ -71,6 +86,8 @@ export default function Details() {
                 </div>
             </div>
         </div>
-    </div>
+    </>:<Loading/>}
+    
+    </>
   )
 }

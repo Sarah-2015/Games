@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo.png'
+
 
 
 export default function Navbar({userData,logout}) {
@@ -8,7 +8,7 @@ export default function Navbar({userData,logout}) {
    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container">
-    <a className="navbar-brand" >
+    <a className="navbar-brand fw-bold" >
       Game Over</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -16,10 +16,10 @@ export default function Navbar({userData,logout}) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     {userData?<ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to={""}>Home</Link>
+          <Link className="nav-link " aria-current="page" to={""}>Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={"all"}>All</Link>
+          <Link className="nav-link"  to={"all"}>All</Link>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,14 +65,14 @@ export default function Navbar({userData,logout}) {
 
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       {userData?<li className="nav-item ">
-            <Link className="nav-link " onClick={logout}  >Logout</Link>
+            <Link className="nav-link btn btn-primary text-white " onClick={logout}  >Logout</Link>
           </li>:
           <>
             <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to={"login"}>Login</Link>
+          <Link className="nav-link text-white"  to={"login"}>Login</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link btn btn-outline-primary" aria-current="page" to={"register"}>Join Free</Link>
+          <Link className="nav-link text-white btn btn-primary" aria-current="page" to={"register"}>Join Free</Link>
         </li></>
       
 }

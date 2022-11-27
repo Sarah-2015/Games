@@ -45,6 +45,7 @@ export default function Register() {
     if(validateResponse.error)
     {
       setErrorList(validateResponse.error.details)
+      console.log(validateResponse.error.details);
     }
     else
     {
@@ -71,21 +72,29 @@ export default function Register() {
       </div>
  
       <div className="col-md-6 text-center">
-      {errorList.map((error,index)=>error.context.label=="password"?<div key={index} className='alert alert-danger '>invalid password</div>:<div key={index} className='alert alert-danger p-2'>{error.message}</div>)}
-    {errorMsg? <div className='alert alert-danger '>{errorMsg}</div>:""}
-        <h2 >Create My Account!</h2>
+      
+    {errorMsg? <div className='alert alert-danger p-1 '>{errorMsg.split(" ").slice(4,10).join(" ")}</div>:""}
+        <h2 className='text-white' >Create My Account!</h2>
         <form onSubmit={submitFormData} className='my-3' >
-          <div className="row my-2">
-            <div className="col-md-6">
+          <div className="row g-2">
+            <div className="col-sm-6 ">
             <input onChange={getInputValue} className='form-control ' type='text' placeholder='First name' name='first_name' />
+          {errorList.map((error,index)=>error.context.label=='first_name'?<p key={index} className='text-start text-danger '>First name {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
             </div>
-            <div className="col-md-6">
+            <div className="col-sm-6 ">
             <input onChange={getInputValue} className='form-control ' type='text' placeholder='Last name' name='last_name' />
+            {errorList.map((error,index)=>error.context.label=='last_name'?<p key={index} className='text-start text-danger '>Last name {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
             </div>
           </div>
           <input onChange={getInputValue} className='form-control my-2' type='email' placeholder='Email'name='email' />
+          {errorList.map((error,index)=>error.context.label=='email'?<p key={index} className=' text-danger text-start'>Email {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
           <input onChange={getInputValue} className='form-control my-2' type='number' placeholder='Age' name='age'/>
+          {errorList.map((error,index)=>error.context.label=='age'?<p key={index} className=' text-danger text-start'>Age {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+
           <input onChange={getInputValue} className='form-control my-2' type='password' placeholder='Password' name='password'/>
+          {errorList.map((error,index)=>error.context.label=="password"?<p key={index} className='text-danger text-start '>password must be at least 8 characters and starts with a letter</p>:"")}
+
+          
           <div className="">
        <button className='btn btn-outline-primary my-3 w-100 '>Create Account</button>
        </div>

@@ -17,7 +17,21 @@ body {
   transform: scale(1.03)
 }
 
-
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: #0d6efd;
+}
+.offline{
+  position: fixed;
+  bottom: 3rem;
+  left: 3rem;
+  z-index: 999;
+  padding: 1rem;
+  color: white;
+  
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Loading from '../Loading/Loading';
+
 
 
 export default function Categories() {
@@ -28,8 +31,14 @@ getGameCategory();
 
     
   return (
-    <div>
-    <div className="row g-3 py-5">
+    <>
+       <Helmet>
+                <meta charSet="utf-8" />
+                <title>{params.cat}</title>
+                
+            </Helmet>
+    
+      {gameList.length>0?<><div className="row g-3 py-5">
       {gameList.map((game,index)=> <div key={index} className='col-lg-3 col-md-4 '>
       <Link className='nav-link' to={`/details/${game.id}`}>
       <div className="card h-100 card-bg">
@@ -57,7 +66,9 @@ getGameCategory();
    
     </div>
   
-  </div>
+    </>:<Loading/>}
+    </>
+    
   )
 }
 

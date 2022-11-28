@@ -51,16 +51,18 @@ let getGameList=()=>{
                 
             </Helmet>
         {gameList.length>0?<><div className="row g-3 py-5">
-        {gameList.map((game,index)=> <div key={index} className='col-lg-3 col-md-4 '>
+        {gameList.map((game,index)=> <div key={index} className='col-lg-3 col-md-4  '>
         <Link className='nav-link' to={`/details/${game.id}`}>
-        <div className="card h-100 card-bg">
+        <div className="card  card-bg">
       <img src={game.thumbnail} className="card-img-top" alt="..."/>
-      <div className="card-body">
+      <div className="card-body ">
         <div className=' d-flex justify-content-between align-items-center'>
         <h5 className="card-title">{game.title?.split(" ").slice(0,3).join(" ")}</h5>
         <span className="badge text-bg-primary">Free</span>
         </div>
-        <p className="text-muted">{game.short_description?.split(" ").slice(0,7).join(" ")}</p>
+        <div>
+        <p className="">{game.short_description?.split(" ").slice(0,7).join(" ")}</p>
+        </div>
       </div>
       <div className="card-footer d-flex justify-content-between ">
       <i className="fas fa-plus-square"></i>

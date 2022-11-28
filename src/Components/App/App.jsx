@@ -1,7 +1,8 @@
 
 import './App.scss';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { createBrowserRouter,createHashRouter,Navigate, RouterProvider } from 'react-router-dom';
+import  { AuthContext } from '../../Context/AuthContext';
 import { Offline, Online } from "react-detect-offline";
 import MasterLayout from '../MasterLayout/MasterLayout';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -22,39 +23,19 @@ import Details from '../Details/Details';
 
 
 function App() {
-  const [userData, setUserData] = useState(null)
-
-  let saveUserData=()=>{
-    let encodedToken= localStorage.getItem("token");
-    let decodedToken=jwtDecode(encodedToken);
-    console.log(decodedToken);
-    setUserData(decodedToken);
-  }
-  useEffect(() => {
-    if(localStorage.getItem('token'))
-  {
-    saveUserData();
-  }
-  }, [])
-
-  let logout=()=>{
-    localStorage.removeItem('token')
-    setUserData(null)
-    return <Navigate to="login"/>
-
-  }
+  let {userData,logout,saveUserData} = useContext(AuthContext);
 
   let routes=createHashRouter([{
-    path:'/',element:<MasterLayout userData={userData} logout={logout}/>,children:[
-      {index:true,element:<ProtectedRoute userData={userData}><Home /></ProtectedRoute>},
+    path:'/',element:<MasterLayout/>,children:[
+      {index:true,element:<ProtectedRoute><Home /></ProtectedRoute>},
     
      
-      {path:"all",element:<ProtectedRoute userData={userData}><All/></ProtectedRoute> },
-      {path:"/platforms/:type",element:<ProtectedRoute userData={userData}><Platforms/></ProtectedRoute> },
-      {path:"/sort-by/:sort",element:<ProtectedRoute userData={userData}><SortBy/></ProtectedRoute>  },
-      {path:"/categories/:cat",element:<ProtectedRoute userData={userData}><Categories/></ProtectedRoute>  },
-      {path:"/details/:id",element:<ProtectedRoute userData={userData}><Details/></ProtectedRoute>  },
-      {path:"login",element:<Login saveUserData={saveUserData} /> },
+      {path:"all",element:<ProtectedRoute ><All/></ProtectedRoute> },
+      {path:"/platforms/:type",element:<ProtectedRoute ><Platforms/></ProtectedRoute> },
+      {path:"/sort-by/:sort",element:<ProtectedRoute ><SortBy/></ProtectedRoute>  },
+      {path:"/categories/:cat",element:<ProtectedRoute ><Categories/></ProtectedRoute>  },
+      {path:"/details/:id",element:<ProtectedRoute ><Details/></ProtectedRoute>  },
+      {path:"login",element:<Login /> },
       {path:"register",element:<Register/> },
       {path:"*",element:<NotFound/>}
     ]

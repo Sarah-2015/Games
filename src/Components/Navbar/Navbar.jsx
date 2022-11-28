@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../Context/AuthContext'
 
 
 
-export default function Navbar({userData,logout}) {
+
+export default function Navbar() {
+  let {userData,logout} = useContext(AuthContext)
   return (
    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,9 +28,9 @@ export default function Navbar({userData,logout}) {
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Platforms
           </a>
-          <ul className="dropdown-menu">
+          <ul className="dropdown-menu  ">
             <li><Link className="dropdown-item" to={`/platforms/pc`}>Pc</Link></li>
-            <li><Link className="dropdown-item" to={`/platforms/browser`}>Browser</Link></li>
+            <li><Link className="dropdown-item " to={`/platforms/browser`}>Browser</Link></li>
           </ul>
         </li>
 

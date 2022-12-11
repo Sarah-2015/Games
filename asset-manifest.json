@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/Games/static/css/main.a7ece289.css",
-    "main.js": "/Games/static/js/main.7d4ce7ef.js",
-    "static/js/787.ca3fd3b1.chunk.js": "/Games/static/js/787.ca3fd3b1.chunk.js",
+    "main.css": "/Games/static/css/main.54faa69e.css",
+    "main.js": "/Games/static/js/main.ab23adfa.js",
     "static/media/fa-solid-900.ttf": "/Games/static/media/fa-solid-900.b1a653db79258eeccc5d.ttf",
     "static/media/gaming.jpg": "/Games/static/media/gaming.ebaf2ffc84f4451d.d5751ff804c935b205d3.jpg",
     "static/media/fa-brands-400.ttf": "/Games/static/media/fa-brands-400.450a5c898f0b184b968b.ttf",
@@ -14,12 +13,11 @@
     "static/media/fa-v4compatibility.ttf": "/Games/static/media/fa-v4compatibility.e314b618134d5be20996.ttf",
     "static/media/fa-v4compatibility.woff2": "/Games/static/media/fa-v4compatibility.4ee7f902d88f819e251c.woff2",
     "index.html": "/Games/index.html",
-    "main.a7ece289.css.map": "/Games/static/css/main.a7ece289.css.map",
-    "main.7d4ce7ef.js.map": "/Games/static/js/main.7d4ce7ef.js.map",
-    "787.ca3fd3b1.chunk.js.map": "/Games/static/js/787.ca3fd3b1.chunk.js.map"
+    "main.54faa69e.css.map": "/Games/static/css/main.54faa69e.css.map",
+    "main.ab23adfa.js.map": "/Games/static/js/main.ab23adfa.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7ece289.css",
-    "static/js/main.7d4ce7ef.js"
+    "static/css/main.54faa69e.css",
+    "static/js/main.ab23adfa.js"
   ]
 }

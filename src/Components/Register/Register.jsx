@@ -49,7 +49,7 @@ export default function Register() {
     }
     else
     {
-      let{data}=await axios.post('https://route-egypt-api.herokuapp.com/signup',user)
+      let{data}=await axios.post('https://sticky-note-fe.vercel.app/signup',user)
       console.log(data);
       if(data.message=="success")
       {

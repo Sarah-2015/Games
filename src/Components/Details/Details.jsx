@@ -44,7 +44,7 @@ export default function Details() {
                 
             </Helmet>
     {itemDetails.title?<>
-        <div className="row py-5 ">
+        <div className="row py-5 mt-5 ">
             <div className="col-md-3">
             <img className='w-100 ' src={itemDetails.thumbnail}/>
             <div  className="col me-0 pe-0">

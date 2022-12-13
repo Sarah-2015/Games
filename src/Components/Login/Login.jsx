@@ -59,7 +59,7 @@ export default function Login() {
 
   return (
     <div className={` ${styles.bg} position-absolute  start-0 end-0 overflow-hidden`}>
-    <div className= {`m-auto w-50 container h-50 `}>
+    <div className= {`m-auto w-50 container h-50  `}>
      
       <div className=" text-center">
       <h2 className='text-white' >Log in to GameOver</h2>

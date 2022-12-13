@@ -38,7 +38,7 @@ sortGameBy();
                 
             </Helmet>
    {gameList.length>0?<>
-    <div className="row g-3 py-5">
+    <div className="row g-3 mt-5 py-5">
       {gameList.map((game,index)=> <div key={index} className='col-lg-3 col-md-4 '>
       <Link className='nav-link' to={`/details/${game.id}`}>
       <div className="card  card-bg">

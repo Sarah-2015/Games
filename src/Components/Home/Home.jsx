@@ -50,7 +50,7 @@ let getGameList=()=>{
                 <title>Home</title>
                 
             </Helmet>
-    {gameList.length>0?<><section className="jumbotron text-center pt-5 pb-4">
+    {gameList.length>0?<><section className="jumbotron text-center mt-5 pt-5 pb-4">
       <div  className="container mb-n2">
         <h1  className="text-info">Find &amp; track the best <span  className="ftg-blue">free-to-play</span> games!</h1>
         <p  className="lead text-muted">Track what you've played and search for what to play next! Plus get free premium loot! </p>

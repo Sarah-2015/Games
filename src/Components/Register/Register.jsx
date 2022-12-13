@@ -66,7 +66,7 @@ export default function Register() {
 
   return (
 
-    <div className={` ${styles.bg} position-absolute  start-0 end-0 `}>
+    <div className={` ${styles.bg} position-absolute  start-0 end-0 overflow-hidden `}>
       <div className= {`mx-auto w-50 container text-center  ${styles.h}  pt-4 rounded-4`}>
         
       <h2 className='text-white'>Create My Account!</h2>

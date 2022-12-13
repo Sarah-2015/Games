@@ -3,7 +3,7 @@ import Joi, { object } from 'joi'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import login from '../../images/gaming.ebaf2ffc84f4451d.jpg'
-
+import styles from './Register.module.css'
 
 
 
@@ -66,48 +66,49 @@ export default function Register() {
 
   return (
 
-    <div className='row py-5 my-5 align-items-center'>
-      <div className="col-md-6">
-      <img className='w-100' src={login}/>
-      </div>
- 
-      <div className="col-md-6 text-center">
-      
+    <div className={` ${styles.bg} position-absolute  start-0 end-0 `}>
+      <div className= {`mx-auto w-50 container text-center  ${styles.h}  pt-4 rounded-4`}>
+        
+      <h2 className='text-white'>Create My Account!</h2>
+
     {errorMsg? <div className='alert alert-danger p-1 '>{errorMsg.split(" ").slice(4,10).join(" ")}</div>:""}
-        <h2 className='text-white' >Create My Account!</h2>
-        <form onSubmit={submitFormData} className='my-3' >
-          <div className="row g-2">
+        
+        <form onSubmit={submitFormData} className='mt-3 ' >
+          <div className="row mb-2">
             <div className="col-sm-6 ">
-            <input onChange={getInputValue} className='form-control ' type='text' placeholder='First name' name='first_name' />
-          {errorList.map((error,index)=>error.context.label=='first_name'?<p key={index} className='text-start text-danger '>First name {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+            <input onChange={getInputValue} className='form-control  ' type='text' placeholder='First name' name='first_name' />
+          {errorList.map((error,index)=>error.context.label=='first_name'?<p key={index} className='text-start alert alert-danger p-0 '>First name {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
             </div>
             <div className="col-sm-6 ">
             <input onChange={getInputValue} className='form-control ' type='text' placeholder='Last name' name='last_name' />
-            {errorList.map((error,index)=>error.context.label=='last_name'?<p key={index} className='text-start text-danger '>Last name {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+            {errorList.map((error,index)=>error.context.label=='last_name'?<p key={index} className='text-start alert alert-danger p-0 '>Last name {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
             </div>
           </div>
-          <input onChange={getInputValue} className='form-control my-2' type='email' placeholder='Email'name='email' />
-          {errorList.map((error,index)=>error.context.label=='email'?<p key={index} className=' text-danger text-start'>Email {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
-          <input onChange={getInputValue} className='form-control my-2' type='number' placeholder='Age' name='age'/>
-          {errorList.map((error,index)=>error.context.label=='age'?<p key={index} className=' text-danger text-start'>Age {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+          <div className='mt-2'>
+          <input onChange={getInputValue} className='form-control ' type='email' placeholder='Email'name='email' />
+          {errorList.map((error,index)=>error.context.label=='email'?<p key={index} className='alert alert-danger text-start p-0'>Email {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+          </div>
+          <div className='mt-2'>
+          <input onChange={getInputValue} className='form-control ' type='number' placeholder='Age' name='age'/>
+          {errorList.map((error,index)=>error.context.label=='age'?<p key={index} className='alert  alert-danger text-start p-0 '>Age {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+          </div>
 
-          <input onChange={getInputValue} className='form-control my-2' type='password' placeholder='Password' name='password'/>
-          {errorList.map((error,index)=>error.context.label=="password"?<p key={index} className='text-danger text-start '>password must be at least 8 characters and starts with a letter</p>:"")}
+         <div className='mt-2'>
+         <input onChange={getInputValue} className='form-control' type='password' placeholder='Password' name='password'/>
+          {errorList.map((error,index)=>error.context.label=="password"?<p key={index} className=' alert alert-danger text-start p-0'>password must be at least 8 characters and starts with a letter</p>:"")}
+         </div>
 
           
-          <div className="">
-       <button className='btn btn-outline-primary my-3 w-100 '>Create Account</button>
-       </div>
+          
+       <button className='btn btn-primary  w-100 my-3 '>Create Account</button>
+      
 
         </form>
-        <div className="text-muted small">This site is protected by reCAPTCHA and the Google
-        <a  href="https://policies.google.com/privacy" className="text-secondary">Privacy Policy</a> and 
-        <a  href="https://policies.google.com/terms" className="text-secondary">Terms of Service</a> apply.
-        </div>
-        <hr/>
-        <div  className="text-center">
-          <span className="small">Already a member?</span>
-          <Link to="/login" className="small a2 cursor ms-2 text-decoration-none" >Log In<i  className="fas fa-chevron-right small"></i>
+       
+       
+        <div  className="text-center mt-3">
+          <span className="text-white h6">Already a member?</span>
+          <Link to="/login" className="  cursor ms-2 btn btn-primary text-decoration-none" >Log In<i  className="fas fa-chevron-right small"></i>
           </Link>
           </div>
         

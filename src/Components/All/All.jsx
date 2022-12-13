@@ -57,12 +57,12 @@ let getGameList=()=>{
       <img src={game.thumbnail} className="card-img-top" alt="..."/>
       <div className="card-body ">
         <div className=' d-flex justify-content-between align-items-center'>
-        <h5 className="card-title">{game.title?.split(" ").slice(0,3).join(" ")}</h5>
+        <h5 className="card-title">{game.title?.split("").slice(0,16).join("")}</h5>
         <span className="badge text-bg-primary">Free</span>
         </div>
-        <div>
-        <p className="">{game.short_description?.split(" ").slice(0,7).join(" ")}</p>
-        </div>
+      
+        <p className="gameDetails">{game.short_description?.split("").slice(0,51).join("")}...</p>
+       
       </div>
       <div className="card-footer d-flex justify-content-between ">
       <i className="fas fa-plus-square"></i>

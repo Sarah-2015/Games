@@ -69,7 +69,7 @@ let getGameList=()=>{
       <div className="card-body ">
         <div className=' d-flex justify-content-between align-items-center'>
         <h5 className="card-title">{game.title?.split(" ").slice(0,3).join(" ")}</h5>
-        <span className="badge text-bg-primary">Free</span>
+        <span className="badge text-bg-primary p-2 rounded">Free</span>
         </div>
       
       </div>

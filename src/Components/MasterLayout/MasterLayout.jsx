@@ -6,7 +6,7 @@ export default function MasterLayout() {
   return (
     <>
     <Navbar/>
-    <div className="container">
+    <div className="container py-5">
     <Outlet></Outlet>
     </div>
     </>

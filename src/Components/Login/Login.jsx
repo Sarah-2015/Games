@@ -3,8 +3,9 @@ import Joi, { object } from 'joi'
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../Context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
-import login from '../../images/gaming.ebaf2ffc84f4451d.jpg'
+import bg from '../../images/bg.jpg'
 import logo from '../../images/logo.png'
+import styles from './Login.module.css'
 
 export default function Login() {
   let {saveUserData}=useContext(AuthContext)
@@ -57,31 +58,33 @@ export default function Login() {
   }
 
   return (
-    <div className='row py-5 my-5 align-items-center '>
-      <div className="col-md-6">
-        <img className='w-100' src={login}/>
-      </div>
-      <div className="col-md-6 text-center">
-        <img className='w-25 p-2' src={logo}/>
+    <div className={` ${styles.bg} position-absolute  start-0 end-0 overflow-hidden`}>
+    <div className= {`m-auto w-50 container h-50 `}>
+     
+      <div className=" text-center">
+      <h2 className='text-white' >Log in to GameOver</h2>
     
     {errorMsg? <div className='alert alert-danger p-1 '>{errorMsg}</div>:""}
-        <h2 className='text-white' >Log in to GameOver</h2>
+        
         <form onSubmit={submitFormData} className='my-3' >
-    
-          <input onChange={getInputValue} className='form-control my-2' type='email' placeholder='Email'name='email' />
-          {errorList.map((error,index)=>error.context.label=='email'?<p key={index} className=' text-danger text-start'>Email {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
- 
-          <input onChange={getInputValue} className='form-control my-2' type='password' placeholder='Password' name='password'/>
-          {errorList.map((error,index)=>error.context.label=="password"?<p key={index} className='text-danger text-start '>password must be at least 8 characters and starts with a letter</p>:"")}
-          <div className="">
-       <button className='btn btn-outline-primary my-3 w-100 '>Login</button>
+            <div className='my-2'>
+          <input onChange={getInputValue} className='form-control ' type='email' placeholder='Email'name='email' />
+          {errorList.map((error,index)=>error.context.label=='email'?<p key={index} className='alert alert-danger text-start p-0'>Email {error.message.split(" ").slice(1,10).join(" ")}</p>:"")}
+          </div>
+         <div className='my-2'>
+         <input onChange={getInputValue} className='form-control  ' type='password' placeholder='Password' name='password'/>
+          {errorList.map((error,index)=>error.context.label=="password"?<p key={index} className=' alert alert-danger p-0 text-start '>password must be at least 8 characters and starts with a letter</p>:"")}
+         </div>
+
+          <div className=" my-3">
+       <button className='btn btn-primary w-100 '>Login</button>
        </div>
 
         </form>
-        <hr/>
-        <div  className="text-center">
-          <span  className="small">Not a member yet? </span>
-          <Link  routerlink="/register" className="small a2 text-decoration-none" to="/register"> Create Account
+        
+        <div  className="text-center my-4">
+          <span  className=" text-white h6">Not a member yet? </span>
+          <Link   className=" ms-1 text-decoration-none btn btn-primary" to="/register"> Create Account
           <i className="fas fa-chevron-right small"></i>
           </Link>
           </div>
@@ -89,6 +92,7 @@ export default function Login() {
       
         
         </div>
+    </div>
     </div>
   )
 }
